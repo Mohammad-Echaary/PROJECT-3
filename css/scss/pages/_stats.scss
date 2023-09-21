@@ -1,0 +1,67 @@
+.stats {
+    text-align: center;
+    background-image: url("../photos/main.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 4rem 0;
+    h2 {
+        text-transform: capitalize;
+        font-size: 2.8rem;
+        font-weight: 500;
+        position: relative;
+    }
+    .container {
+        position: relative;
+        @include grid(250px,
+        1rem);
+        margin-top: 2rem;
+        .box {
+            background-color: white;
+            padding: 2rem;
+            position: relative;
+            &::before {
+                @include absPseudo(null,
+                null,
+                0,
+                0,
+                3px,
+                0);
+                background-color: $mainColor;
+                transition: .3s;
+            }
+            &::after {
+                @include absPseudo(0,
+                0,
+                null,
+                null,
+                3px,
+                0);
+                background-color: $mainColor;
+                transition: .3s;
+            }
+            i {
+                font-size: 3rem;
+            }
+            h3 {
+                margin-top: 0.8rem;
+                margin-bottom: 0.8rem;
+                font-size: 3rem;
+                font-weight: 500;
+            }
+            p {
+                text-transform: capitalize;
+                color: $mainColor;
+                font-weight: 600;
+                font-size: 1.5rem;
+                font-style: italic;
+            }
+            &:hover {
+                &::before,
+                &::after {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

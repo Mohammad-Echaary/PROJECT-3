@@ -1,0 +1,107 @@
+.pricing {
+    background-color: $bkOver;
+    @extend %pad;
+    .container {
+        @include grid(320px, 1rem);
+        .box {
+            box-shadow: $boxShadow;
+            background-color: white;
+            position: relative;
+            border-radius: 3px;
+            z-index: 1;
+            @include breakPoint(lar) {
+                &:nth-child(2) {
+                    transform: translateY(-20px);
+                }
+            }
+            &::before {
+                @include absPseudo(0, null, null, 0, 0, 50%, -1);
+                background-color: #f6f6f6;
+                transition: .3s;
+            }
+            &::after {
+                @include absPseudo(null, 0, 0, null, 0, 50%, -1);
+                background-color: #f6f6f6;
+                transition: .3s;
+            }
+            .pop {
+                @include abs(0, 20px, null, null, 40px);
+                writing-mode: vertical-rl;
+                background-color: $mainColor;
+                color: white;
+                line-height: 40px;
+                padding: 1rem 0 calc(1rem + 20px);
+                &::after {
+                    @include arrow(null, null, 0, 0, 20px, transparent, transparent, white, transparent);
+                }
+            }
+            .text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem;
+                gap: 1.5rem;
+                color: $mainColor;
+                h3 {
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    color: black;
+                }
+                i {
+                    font-size: 5rem;
+                }
+                .price {
+                    h1 {
+                        margin: 0;
+                        font-size: 3.5rem;
+                        font-weight: 600;
+                    }
+                    P {
+                        color: #777;
+                        text-align: center;
+                    }
+                }
+            }
+            .benifits {
+                div {
+                    padding: 1.2rem 2rem;
+                    border-top: 1px solid $bkOver;
+                    position: relative;
+                    &::before {
+                        @include absPseudo(50%, null, null, 0.6rem, auto, auto, 1, "\f00c");
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        transform: translateY(-50%);
+                        color: $mainColor;
+                    }
+                }
+            }
+            a {
+                margin: 2rem auto;
+                width: fit-content;
+                padding: 0.8rem 1rem;
+                border: 2px solid $mainColor;
+                color: $mainColor;
+                transition: 0.3s;
+                border-radius: 5px;
+                font-weight: 600;
+                &:hover {
+                    color: white;
+                    background-color: $mainColor;
+                }
+                &:hover {
+                    &::before,
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+            &:hover {
+                &::before,
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

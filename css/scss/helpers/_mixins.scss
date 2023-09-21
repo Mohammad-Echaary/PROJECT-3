@@ -1,0 +1,169 @@
+// prefixes
+$vendors: webkit, o, ms, moz;
+
+@mixin prefixes($propertyName, $value) {
+	#{$propertyName}: $value;
+	@each $prefix in $vendors {
+		-#{$prefix}-#{$propertyName}: $value;
+	}
+}
+
+// amination
+@mixin animationMixin($animationName) {
+	@keyframes #{$animationName} {
+		@content;
+	}
+}
+
+// media query
+@mixin breakPoint($point) {
+	@if $point==m {
+		@media (max-width: $maxMobile) {
+			@content;
+		}
+	} @else if $point==sm {
+		@media (min-width: $minSm) {
+			@content;
+		}
+	} @else if $point==md {
+		@media (min-width: $minMd) {
+			@content;
+		}
+	} @else if $point==lar {
+		@media (min-width: $minLar) {
+			@content;
+		}
+	}
+}
+@mixin maxBreakPoint($point) {
+	@if $point ==sm {
+		@media (max-width: $maxSm) {
+			@content;
+		}
+	} @else if $point == md {
+		@media (max-width: $maxMd) {
+			@content;
+		}
+	}
+}
+// rounded()
+@mixin rounded($size) {
+	width: $size;
+	height: $size;
+	@include prefixes(border-radius, 50%);
+}
+
+
+//centering with flex
+@mixin flexCenter($gap: 0) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: $gap;
+}
+
+// centering with position
+@mixin absCenter($width: 0, $heigth: 0) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: $width;
+	height: $heigth;
+}
+
+// flex
+@mixin flex($gap: 0, $wrap: no-wrap) {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: $gap;
+	flex-wrap: $wrap;
+}
+
+// grid
+@mixin grid($size: 300px, $gap: 0) {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax($size, 1fr));
+	gap: $gap;
+}
+@mixin gridCol($col: 1, $gap: 0) {
+	display: grid;
+	grid-template-columns: repeat($col, 1fr);
+	gap: $gap;
+}
+
+// absolute
+@mixin abs(
+	$top: null,
+	$right: null,
+	$bottom: null,
+	$left: null,
+	$width: auto,
+	$height: auto
+) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	width: $width;
+	height: $height;
+}
+
+// absolute before and after
+@mixin absPseudo(
+	$top: null,
+	$right: null,
+	$bottom: null,
+	$left: null,
+	$width: auto,
+	$height: auto,
+	$z-index: 1,
+	$content: ''
+) {
+	position: absolute;
+	content: $content;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	width: $width;
+	height: $height;
+	z-index: $z-index;
+}
+
+// overlay
+@mixin overlay($back, $opacity) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba($back, $opacity);
+}
+
+// flesh
+@mixin arrow(
+	$top,
+	$right,
+	$bottom,
+	$left,
+	$width,
+	$one: transparent,
+	$two: transparent,
+	$three: transparent,
+	$four: transparent
+) {
+	position: absolute;
+	content: '';
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	border-style: solid;
+	border-width: $width;
+	border-color: $one $two $three $four;
+	width: 0;
+	height: 0;
+}

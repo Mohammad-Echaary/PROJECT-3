@@ -1,0 +1,62 @@
+.articles {
+    @extend %pad;
+
+    .container {
+        @include grid(250px, 2.5rem);
+
+        .box {
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: $boxShadow;
+            cursor: pointer;
+            position: relative;
+            transition: 0.3s;
+
+            .text {
+                padding: 1rem;
+                border-bottom: 1px solid #d1d0d0;
+
+                h3 {
+                    text-transform: capitalize;
+                    margin-bottom: 1rem;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                    color: #777;
+                }
+            }
+
+            .link {
+                padding: 1rem 1.5rem 1rem 1rem;
+                display: flex;
+                justify-content: space-between;
+                color: $mainColor;
+
+                a {
+                    color: $mainColor;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                }
+            }
+
+            &:hover {
+                transform: translateY(-1rem);
+
+                i {
+                    @include prefixes(animation, article_move 0.5s linear infinite);
+
+                    @include animationMixin(article_move) {
+                        80% {
+                            margin-right: -0.5rem;
+                        }
+
+                        100% {
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

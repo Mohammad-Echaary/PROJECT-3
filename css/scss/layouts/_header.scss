@@ -1,0 +1,134 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: $boxShadow;
+  background-color: white;
+  > .container {
+    position: relative;
+    @include flex();
+    @include breakPoint(m){
+        flex-direction: column;
+    }
+    .menu {
+      display: flex;
+      > li {
+        > a {
+          padding: 1.5rem;
+          @include breakPoint(m){
+            padding: 1rem;
+          }
+          position: relative;
+          @include prefixes(transition, 0.3s);
+          &::before {
+            @include abs(0, null, null, 0, 0, 0.25rem);
+            content: "";
+            background-color: $mainColor;
+            @include prefixes(transition, 0.3s);
+          }
+          &:hover {
+            background-color: $halfBlack;
+            color: $mainColor;
+            &:hover::before {
+              width: 100%;
+            }
+          }
+          &.active {
+            background-color: $halfBlack;
+            color: $mainColor;
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+        .seb-section {
+          @include abs(140%, null, null, 50%);
+          transform: translateX(-50%);
+          border-radius: 4px;
+          z-index: -1;
+          opacity: 0;
+          transition: 0.3s;
+          @include flex();
+          background-color: white;
+          padding: 1rem;
+          pointer-events: none;
+          @include breakPoint(m) {
+            padding: 0;
+          }
+          width: 100%;
+          &::after {
+            @include absPseudo(null, null, 0, 0, 100%, 3px);
+            background-color: $mainColor;
+          }
+          .im {
+            flex-basis: 35%;
+            border-radius: 10px;
+            overflow: hidden;
+            @include breakPoint(m) {
+              display: none;
+            }
+          }
+          .seb-menu {
+            flex-basis: 60%;
+            @include flex(0, wrap);
+            @include breakPoint(m) {
+              flex-basis: 100%;
+            }
+            li {
+              flex-basis: 47%;
+              position: relative;
+              color: $mainColor;
+              @include breakPoint(m) {
+                flex-basis: 100%;
+              }
+              &:not(:last-child) {
+                @include breakPoint(m) {
+                  border-bottom: 1px solid #dcd9d9;
+                }
+              }
+              &:not(:last-child):not(:nth-last-child(2)) {
+                border-bottom: 1px solid #dcd9d9;
+              }
+              &::before {
+                @include absPseudo(0, null, null, 0, 0, 100%, -1);
+                background-color: $halfBlack;
+                transition: 0.3s;
+              }
+              &:hover {
+                &::before {
+                  width: 100%;
+                }
+              }
+              a {
+                color: $mainColor;
+                font-weight: 500;
+                padding: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+        &:last-child {
+          &:hover {
+            .seb-section {
+              opacity: 1;
+              z-index: 100;
+              top: calc(100% + 1px);
+              pointer-events: all;
+              &.hide {
+                opacity: 0;
+                z-index: -1;
+                pointer-events: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

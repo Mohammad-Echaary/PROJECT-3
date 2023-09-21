@@ -1,0 +1,65 @@
+.title {
+  width: fit-content;
+  margin: 0rem auto 6rem;
+  padding: 0.7rem 1.9rem;
+  border: 2px solid black;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10;
+  &:before {
+    @include absPseudo(50%, null, null, -2.2rem, 1rem, 1rem, 2);
+    @include prefixes(transform, translateY(-50%));
+    border-radius: 50%;
+    background-color: $mainColor;
+    @include animationMixin(left_title) {
+      50% {
+        left: 0;
+        width: 1rem;
+        height: 1rem;
+      }
+      100% {
+        border-radius: 0;
+        left: 0;
+        width: calc(100% + 20px);
+        height: calc(100% + 10px);
+      }
+    }
+  }
+  &:after {
+    @include absPseudo(50%, -2.2rem, null,null, 1rem, 1rem, 2);
+    @include prefixes(transform, translateY(-50%));
+    border-radius: 50%;
+    background-color: $mainColor;
+    @include animationMixin(right_title) {
+      50% {
+        right: 0;
+        width: 1rem;
+        height: 1rem;
+      }
+      100% {
+        border-radius: 0;
+        right: 0;
+        width: calc(100% + 20px);
+        height: calc(100% + 10px);
+      }
+    }
+  }
+  &:hover {
+    transition-delay: 0.4s;
+    overflow: hidden;
+    color: white;
+    border-color: $mainColor;
+    &::before {
+      animation: left_title 0.4s linear forwards;
+      z-index: -1;
+    }
+    &::after {
+      animation: right_title 0.4s linear forwards;
+      z-index: -1;
+    }
+  }
+}

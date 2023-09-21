@@ -1,0 +1,48 @@
+.testimonials {
+    @extend %pad;
+    background-color: $bkOver;
+
+    .container {
+        @include grid(300px, 2.4rem 2rem);
+
+        .box {
+            background-color: white;
+            position: relative;
+            padding: 1.5rem;
+            box-shadow: $boxShadow;
+            border-radius: 10px;
+
+            .avatar {
+                @include rounded(6rem);
+                position: absolute;
+                top: 0;
+                transform: translateY(-50%);
+                right: 0px;
+                overflow: hidden;
+                border: 11px solid $bkOver;
+            }
+
+            p {
+                color: #777;
+
+                &:last-of-type {
+                    font-size: 0.85rem;
+                }
+            }
+
+            .stars {
+                margin: 1rem 0 2rem;
+                display: flex;
+                gap: 0.8rem;
+
+                .star {
+                    color: #ffc107;
+
+                    &.fa-regular {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}

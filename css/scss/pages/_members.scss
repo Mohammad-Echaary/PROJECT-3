@@ -1,0 +1,90 @@
+.members {
+    @extend %pad;
+
+    .container {
+        @include grid(300px, 2rem);
+
+        .box {
+            padding: 4rem 2rem 2rem 0;
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+                @include absPseudo(0, 0, null, null, 85%, 100%, -2);
+                background-color: $bkOver;
+                border-radius: 10px;
+            }
+
+            &::after {
+                @include absPseudo(0, -85%, null, null, 85%, 100%, -1);
+                background-color: rgba(0, 0, 0, 0.14);
+                transition: 0.3s;
+                border-radius: 10px;
+            }
+
+            .photo {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                position: relative;
+
+                .im {
+                    border-radius: 10px;
+                    overflow: hidden;
+
+                    img {
+                        transition: 0.3s;
+                        height: 270px;
+                    }
+                }
+
+                .social {
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    gap: 1rem;
+
+                    i {
+                        font-size: 1.2rem;
+                        transition: 0.3s;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $mainColor;
+                        }
+                    }
+                }
+            }
+
+            .text {
+                margin-left: calc(20% + 15px);
+                margin-top: 1.5rem;
+
+                h3 {
+                    color: $mainColor;
+                    margin-bottom: 0.5rem;
+                    transition: 0.3s;
+                }
+
+                p {
+                    color: #777
+                }
+            }
+
+            &:hover {
+                &::after {
+                    right: 0;
+                }
+
+                img {
+                    filter: grayscale(100%);
+                }
+
+                h3 {
+                    color: #777;
+                }
+            }
+        }
+    }
+}

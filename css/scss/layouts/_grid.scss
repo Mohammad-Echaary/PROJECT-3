@@ -1,0 +1,20 @@
+//  container 
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+
+    @include breakPoint(sm) {
+        width: 750px;
+    }
+
+    @include breakPoint(md) {
+        width: 970px;
+    }
+
+    @include breakPoint(lar) {
+        width: 1170px;
+    }
+}

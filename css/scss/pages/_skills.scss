@@ -1,0 +1,54 @@
+.skills {
+    @extend %pad;
+
+    .container {
+        @include grid(450px, 2rem);
+        align-items: center;
+
+        @include breakPoint(m) {
+            grid-template-columns: 1fr;
+
+        }
+
+        .skill-list {
+            @include maxBreakPoint(sm) {
+                grid-column-start: 1;
+                grid-row-start: 1;
+            }
+
+            .skill {
+                margin-bottom: 2rem;
+
+                h3 {
+                    text-transform: uppercase;
+                    font-weight: 400;
+
+                }
+
+                .per {
+                    height: 30px;
+                    background-color: $bkOver;
+                    margin: 1rem 0;
+                    position: relative;
+
+                    p {
+                        position: absolute;
+                        background-color: $mainColor;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                    }
+
+                    &::after {
+                        @include absPseudo(calc(-25px - 1rem), 0, null, null, 35px, 25px, 1, attr(data-perc));
+                        @include flexCenter();
+                        border: 1px solid $mainColor;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                        color: $mainColor;
+                    }
+                }
+            }
+        }
+    }
+}

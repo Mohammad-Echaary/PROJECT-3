@@ -1,0 +1,76 @@
+div.services {
+    background-color: $bkOver;
+    @extend %pad;
+
+    .container {
+        @include grid(300px, 2rem);
+
+        .box {
+            box-shadow: $boxShadow;
+            background-color: white;
+            position: relative;
+            transition: 0.3s;
+            counter-increment: my-counter;
+            cursor: pointer;
+
+            &::before {
+                @include absPseudo(-3px, null, null, 50%, 0, 3px);
+                background-color: $mainColor;
+                transition: 0.3s;
+                transform: translateX(-50%);
+            }
+
+            .text {
+                padding: 2rem;
+                text-align: center;
+
+                i {
+                    color: #ddd;
+                    margin-bottom: 0.7rem;
+                }
+
+                h3 {
+                    color: $mainColor;
+                }
+            }
+
+            .info {
+                background-color: $bkOver;
+                padding: 0.7rem;
+                display: flex;
+                justify-content: flex-end;
+                position: relative;
+                overflow: hidden;
+
+                &::before {
+                    @include absPseudo(0, null, null, 0, 90px, calc(100% + 1px), 1, "0" counter(my-counter));
+                    transform-origin: top left;
+                    background-color: $mainColor;
+                    @include flexCenter();
+                    color: white;
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+
+                &::after {
+                    @include absPseudo(0, null, null, 90px, 40px, calc(100% + 1px));
+                    transform: skewX(-25deg);
+                    background-color: #d5d2d2;
+                    transform-origin: top left;
+                }
+
+                a {
+                    color: $mainColor;
+                }
+            }
+
+            &:hover {
+                transform: translateY(-1rem);
+
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

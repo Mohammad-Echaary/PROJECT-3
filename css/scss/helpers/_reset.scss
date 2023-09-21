@@ -1,0 +1,68 @@
+* {
+	@include prefixes(box-sizing, border-box);
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 12px;
+	scroll-behavior: smooth;
+
+	@include breakPoint(sm) {
+		font-size: 15px;
+	}
+
+	@include breakPoint(md) {
+		font-size: 16px;
+	}
+
+	@include breakPoint(lar) {
+		font-size: 17px;
+	}
+}
+
+a {
+	display: block;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+img {
+	width: 100%;
+}
+
+input,
+textarea {
+	display: block;
+	width: 100%;
+	border: none;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+}
+
+.center {
+	text-align: center;
+}
+
+// project 3
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+a {
+	color: black;
+	font-size: 1.1rem;
+}
+
+p {
+	line-height: 1.7;
+}

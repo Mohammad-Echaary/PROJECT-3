@@ -1,0 +1,98 @@
+.events {
+    @extend %pad;
+    .container {
+        @include flex(2rem);
+        margin-bottom: 4rem;
+        .im {
+            flex-basis: 70%;
+            @include maxBreakPoint(sm) {
+                display: none;
+            }
+        }
+        .box {
+            text-align: center;
+            .time {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                margin-bottom: 3rem;
+                >div {
+                    border: 1px solid #ccc;
+                    text-align: center;
+                    transition: 0.3s;
+                    cursor: pointer;
+                    >div {
+                        width: 75px;
+                        height: 60px;
+                        line-height: 60px;
+                        font-size: 2rem;
+                        font-weight: 600;
+                        color: $mainColor;
+                    }
+                    >p {
+                        padding: 0.3rem 0.8rem;
+                        text-transform: capitalize;
+                        font-size: 0.7rem;
+                        border-top: 1px solid #ccc;
+                        transition: 0.3s;
+                    }
+                    &:hover,
+                    &:hover p {
+                        border-color: $mainColor;
+                    }
+                }
+            }
+            h2 {
+                margin-bottom: 1rem;
+            }
+            >p {
+                color: #777;
+            }
+        }
+    }
+    form {
+        margin: 0 auto;
+        background-color: $bkOver;
+        padding: 1.7rem;
+        border-radius: 70px;
+        max-width: 600px;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        @include breakPoint(m) {
+            flex-direction: column;
+            gap: 2rem;
+            border-radius: 5px;
+        }
+        input {
+            outline: none;
+            border: none;
+            padding: 1.4rem;
+            border-radius: 40px;
+            @include breakPoint(m) {
+                border-radius: 5px;
+            }
+            &.email {
+                caret-color: $mainColor;
+                &:focus {
+                    &::placeholder {
+                        opacity: 0;
+                    }
+                }
+                &::placeholder {
+                    transition: opacity 0.3s;
+                }
+            }
+            &.submit {
+                flex-basis: 20%;
+                background-color: $mainColor;
+                color: white;
+                transition: 0.3s;
+                cursor: pointer;
+                &:hover {
+                    background-color: $altColor;
+                }
+            }
+        }
+    }
+}

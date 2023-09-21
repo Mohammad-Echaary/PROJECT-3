@@ -1,0 +1,103 @@
+%pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+header {
+  height: 100vh;
+  position: relative;
+
+  .content {
+    position: relative;
+    height: calc(100% - 82.7px);
+    @include flexCenter();
+
+    ::after {
+      @include absPseudo(-10%, null, null, 0, 100%, 110%, -1);
+      background-color: $bkOver;
+      transform: skewY(-4deg);
+      transform-origin: top left;
+    }
+
+    .container {
+      @include flex();
+
+      .text {
+        width: 500px;
+
+        @include maxBreakPoint(sm) {
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+        }
+
+        @include breakPoint(m) {
+          width: 100%;
+        }
+
+        h2 {
+          font-size: 2.6rem;
+          line-height: 1.5;
+          letter-spacing: -3px;
+          font-weight: 600;
+        }
+
+        p {
+          font-size: 1.6rem;
+          color: #3a3a3a;
+        }
+      }
+
+      .photo {
+        flex-basis: 50%;
+        position: relative;
+        @include prefixes(animation, photo 4s linear infinite alternate);
+
+        @include animationMixin(photo) {
+
+          0%,
+          100% {
+            top: 0;
+          }
+
+          50% {
+            top: -2rem;
+          }
+        }
+
+        @include maxBreakPoint(sm) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .scroll {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 4rem;
+    z-index: 10;
+
+    a {
+      font-size: 2rem;
+      color: $mainColor;
+      @include prefixes(animation, scr 1s linear infinite alternate);
+      position: relative;
+
+      @include animationMixin(scr) {
+
+        0%,
+        60%,
+        100% {
+          transform: translateY(0);
+        }
+
+        40%,
+        80% {
+          transform: translateY(-1rem);
+        }
+      }
+    }
+  }
+}

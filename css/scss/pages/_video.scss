@@ -1,0 +1,49 @@
+.video {
+    @extend %pad;
+    .container {
+        display: flex;
+        border: 1px solid #eee;
+        padding: 0;
+        @include maxBreakPoint(sm) {
+            flex-direction: column;
+        }
+        .video-list {
+            min-width: 300px;
+            .head {
+                background-color: $bkOver;
+                @include flex();
+                padding: 1rem;
+            }
+            .video-title {
+                padding: 1rem;
+                border-bottom: 1px solid #eee;
+                cursor: pointer;
+                h5 {
+                    font-weight: 500;
+                    transition: 0.3s;
+                }
+                p {
+                    margin-top: 0.5rem;
+                    color: #777;
+                }
+                &:hover {
+                    h5 {
+                        color: $mainColor;
+                    }
+                }
+            }
+        }
+        .watch {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0.7rem;
+            background-color: #e7e6e6;
+            .details {
+                padding: 1rem;
+                background-color: white;
+                margin-top: 0.7rem;
+            }
+        }
+    }
+}

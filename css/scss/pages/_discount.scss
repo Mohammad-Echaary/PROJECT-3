@@ -1,0 +1,81 @@
+.discount {
+    min-height: 100vh;
+    @include gridCol(2);
+    @include maxBreakPoint(sm) {
+        grid-template-columns: 1fr;
+    }
+    ;
+    >div {
+        @include flexCenter();
+        text-align: center;
+        padding: 2rem 15px;
+        padding: 5rem;
+        @include maxBreakPoint(sm) {
+            padding: 2rem 15px;
+        }
+    }
+    .have {
+        position: relative;
+        background-image: url("../photos/main.jpg");
+        background-position: center;
+        background-size: cover;
+        @include maxBreakPoint(sm) {
+            grid-row: 2;
+        }
+        ;
+        .over {
+            background-color: rgba(33, 150, 243, 0.7);
+        }
+        .box {
+            position: relative;
+            color: white;
+            h2 {
+                font-size: 2rem;
+            }
+            p {
+                margin: 3rem auto;
+                font-size: 1.2rem;
+            }
+            .im {
+                width: 400px;
+                margin: 0 auto;
+                @include breakPoint(m) {
+                    width: 300px;
+                }
+            }
+        }
+    }
+    .request {
+        form {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            width: 350px;
+            .fill,
+            textarea {
+                padding: 1rem;
+                background-color: $halfBlack;
+                border: none;
+                border-bottom: 1px solid #d1d1d1;
+                caret-color: $mainColor;
+            }
+            .sub-discount {
+                color: white;
+                background: $mainColor;
+                border: none;
+                padding: 1rem;
+                font-weight: 600;
+                transition: 0.3s;
+                cursor: pointer;
+                &:hover {
+                    background-color: $altColor;
+                }
+            }
+            textarea {
+                resize: none;
+                height: 200px;
+            }
+        }
+    }
+}

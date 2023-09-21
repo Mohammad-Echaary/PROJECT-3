@@ -1,0 +1,152 @@
+.features {
+    @extend %pad;
+
+    .container {
+        @include grid(300px, 2rem);
+
+        .box {
+            border: 1px solid #dcd9d9;
+            cursor: pointer;
+
+            .photo {
+                position: relative;
+                padding: 0;
+                overflow: hidden;
+
+                &::before {
+                    @include absPseudo(0, null, null, 0, 100%, 100%);
+                }
+
+                &::after {
+                    @include absPseudo(null, 0, 0, null, 0, 0);
+                    transition: 0.3s;
+                    border-width: 0px 0px 130px 650px;
+                    border-style: solid;
+                    border-color: transparent transparent white transparent;
+                }
+            }
+
+            .text {
+                padding: 1rem;
+                text-align: center;
+
+                h2 {
+                    position: relative;
+                    text-transform: capitalize;
+                    width: fit-content;
+                    margin: 0 auto 3rem;
+
+                    &::after {
+                        @include absPseudo(null, null, -1rem, 50%, 70%, 6px);
+                        transform: translateX(-50%);
+                        border-radius: 10px;
+                    }
+                }
+
+                p {
+                    color: #777;
+                }
+
+                a {
+                    text-transform: capitalize;
+                    font-weight: 600;
+                    width: fit-content;
+                    margin: 3rem auto 0;
+                    padding: 0.7rem 1.5rem;
+                    border-style: solid;
+                    border-width: 3px;
+                    border-radius: 5px;
+                    position: relative;
+                    transition: 0.2s;
+
+                    &::after {
+                        @include absPseudo(0, null, null, 0, 0%, 100%, -1);
+                        transition: 0.4s;
+                    }
+                }
+            }
+
+            &:first-child {
+                .photo::before {
+                    background-color: rgba(244, 64, 54, .6);
+                }
+
+                .text {
+
+                    h2::after {
+                        background-color: $red;
+                    }
+
+                    a {
+                        color: $red;
+                        border-color: $red;
+
+                        &::after {
+                            background-color: $red;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                .photo::before {
+                    background-color: rgba($green, .6);
+                }
+
+                .text {
+
+                    h2::after {
+                        background-color: $green;
+                    }
+
+                    a {
+                        color: $green;
+                        border-color: $green;
+
+                        &::after {
+                            background-color: $green;
+                        }
+                    }
+                }
+            }
+
+            &:last-child {
+                .photo::before {
+                    background-color: rgba($blue, .6);
+                }
+
+                .text {
+
+                    h2::after {
+                        background-color: $blue;
+                    }
+
+                    a {
+                        color: $blue;
+                        border-color: $blue;
+
+                        &::after {
+                            background-color: $blue;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                .photo {
+                    &::after {
+                        border-width: 0px 650px 130px 0;
+                    }
+                }
+
+                .text a {
+                    color: white;
+
+                    &::after {
+                        width: 100%
+                    }
+                }
+            }
+        }
+    }
+}
