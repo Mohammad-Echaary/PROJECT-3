@@ -6,7 +6,7 @@
     height: 70px;
     @include flexCenter();
     margin: 0;
-    @include breakPoint(m) {
+    @include maxBreakPoint(md) {
       height: 60px;
     }
   }

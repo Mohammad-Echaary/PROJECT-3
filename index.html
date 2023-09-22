@@ -15,6 +15,9 @@
 </head>
 
 <body>
+  <div class="arrow-up">
+    <i class="fa-solid fa-arrow-up"></i>
+  </div>
   <header>
     <nav>
       <div class="container">
@@ -22,11 +25,11 @@
           <h1><a href="">echaary</a></h1>
         </div>
         <ul class="menu">
-          <li><a href="#articles">articles</a></li>
-          <li><a href="#gallery">gallery</a></li>
-          <li><a href="#features">features</a></li>
+          <li><a href="#articles"  class="menu-list-link">articles</a></li>
+          <li><a href="#gallery" class="menu-list-link">gallery</a></li>
+          <li><a href="#features" class="menu-list-link">features</a></li>
           <li>
-            <a href="">other links</a>
+            <a href="#" class="other-links">other links</a>
             <div class="seb-section container">
               <div class="im">
                 <img src="./photos/four.jpg" alt="" />
@@ -88,7 +91,7 @@
       <a href="#articles"><i class="fa-solid fa-angles-down"></i></a>
     </div>
   </header>
-  <div class="articles" id="articles">
+  <div class="articles main-container" id="articles">
     <h1 class="title">articles</h1>
     <div class="container">
       <div class="box">
@@ -198,7 +201,7 @@
     </div>
   </div>
   <div class="spikes"></div>
-  <div class="gallery" id="gallery">
+  <div class="gallery main-container" id="gallery">
     <h2 class="title">gallery</h2>
     <div class="container">
       <div class="box">
@@ -243,7 +246,7 @@
       </div>
     </div>
   </div>
-  <div class="features" id="features">
+  <div class="features main-container" id="features">
     <h1 class="title">features</h1>
     <div class="container">
       <div class="box">
@@ -285,7 +288,7 @@
     </div>
   </div>
   <div class="spikes"></div>
-  <div class="testimonials" id="testimonials">
+  <div class="testimonials main-container" id="testimonials">
     <h1 class="title">testimonials</h1>
     <div class="container">
       <div class="box">
@@ -398,7 +401,7 @@
       </div>
     </div>
   </div>
-  <div class="members" id="members">
+  <div class="members main-container" id="members">
     <h1 class="title">team members</h1>
     <div class="container">
       <div class="box">
@@ -540,7 +543,7 @@
     </div>
   </div>
   <div class="spikes"></div>
-  <div class="services" id="services">+
+  <div class="services main-container" id="services">+
     <h1 class="title">services</h1>
     <div class="container">
       <div class="box">
@@ -599,7 +602,7 @@
       </div>
     </div>
   </div>
-  <div class="skills" id="skills">
+  <div class="skills main-container" id="skills">
     <h2 class="title">our skills</h2>
     <div class="container">
       <img src="./photos/main.jpg" alt="" />
@@ -607,32 +610,32 @@
         <div class="skill">
           <h3>html</h3>
           <div class="per" data-perc="80%">
-            <p style="width: 80%"></p>
+            <p style="width: 0%"></p>
           </div>
         </div>
         <div class="skill">
           <h3>css</h3>
           <div class="per" data-perc="85%">
-            <p style="width: 85%"></p>
+            <p style="width: 0%"></p>
           </div>
         </div>
         <div class="skill">
           <h3>javascript</h3>
           <div class="per" data-perc="70%">
-            <p style="width: 70%"></p>
+            <p style="width: 0%"></p>
           </div>
         </div>
         <div class="skill">
           <h3>python</h3>
           <div class="per" data-perc="80%">
-            <p style="width: 80%"></p>
+            <p style="width: 0%"></p>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="spikes"></div>
-  <div class="works" id="works">
+  <div class="works main-container" id="works">
     <h2 class="title">How It Works ?</h2>
     <div class="container">
       <div class="im">
@@ -672,7 +675,7 @@
       </div>
     </div>
   </div>
-  <div class="events" id="events">
+  <div class="events main-container" id="events">
     <h2 class="title">Latest Events</h2>
     <div class="container">
       <div class="im">
@@ -697,7 +700,7 @@
             <p>seconds</p>
           </div>
         </div>
-        <h2>Tech Masters Event 2021</h2>
+        <h2>Tech Masters Event 2023</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero tenetur doloremque iusto ut adipisci quam
           ratione aliquam excepturi nulla in harum, veritatis porro
@@ -710,7 +713,7 @@
     </form>
   </div>
   <div class="spikes"></div>
-  <div class="pricing" id="pricing">
+  <div class="pricing main-container" id="pricing">
     <h2 class="title">Pricing Plans</h2>
     <div class="container">
       <div class="box">
@@ -770,7 +773,7 @@
       </div>
     </div>
   </div>
-  <div class="video" id="video">
+  <div class="video main-container" id="video">
     <h2 class="title">top videos</h2>
     <div class="container">
       <div class="video-list">
@@ -815,33 +818,33 @@
       </div>
     </div>
   </div>
-  <div class="stats">
+  <div class="stats main-container" id="stats">
     <div class="over"></div>
     <h2>our awesome stats</h2>
     <div class="container">
       <div class="box">
         <i class="far fa-user fa-2x fa-fw"></i>
-        <h3>150</h3>
+        <h3 data-max = '150'>0</h3>
         <p>clients</p>
       </div>
       <div class="box">
         <i class="fas fa-code fa-2x fa-fw"></i>
-        <h3>135</h3>
+        <h3 data-max = '135'>0</h3>
         <p>projects</p>
       </div>
       <div class="box">
         <i class="fas fa-globe-asia fa-2x fa-fw"></i>
-        <h3>50</h3>
+        <h3 data-max = '50'>0</h3>
         <p>countries</p>
       </div>
       <div class="box">
         <i class="far fa-money-bill-alt fa-2x fa-fw"></i>
-        <h3>500</h3>
+        <h3 data-max = '500'>0</h3>
         <p>money</p>
       </div>
     </div>
   </div>
-  <div class="discount">
+  <div class="discount main-container" id="discount">
     <div class="have">
       <div class="over"></div>
       <div class="box">

@@ -131,6 +131,30 @@ p {
       animation: right_title 0.4s linear forwards;
       z-index: -1; }
 
+.arrow-up {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2196f3;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  z-index: 100;
+  transition: .3s;
+  opacity: 0;
+  pointer-events: none; }
+  .arrow-up:hover {
+    background-color: #1787e0; }
+  .arrow-up.active {
+    opacity: 1;
+    pointer-events: all; }
+
 .logo h1 {
   position: relative;
   font-family: "Dancing Script", cursive;
@@ -141,7 +165,7 @@ p {
   align-items: center;
   gap: 0;
   margin: 0; }
-  @media (max-width: 767px) {
+  @media (max-width: 1199px) {
     .logo h1 {
       height: 60px; } }
 .logo a {
@@ -921,7 +945,8 @@ div.services {
         background-color: #2196f3;
         top: 0;
         left: 0;
-        height: 100%; }
+        height: 100%;
+        transition: .5s; }
       .skills .container .skill-list .skill .per::after {
         position: absolute;
         content: attr(data-perc);
